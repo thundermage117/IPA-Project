@@ -1,0 +1,74 @@
+$date
+	Thu Feb 17 19:09:31 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module testbench $end
+$var reg 1 ! clk $end
+$upscope $end
+$scope module testbench $end
+$var reg 4 " icode [3:0] $end
+$upscope $end
+$scope module testbench $end
+$var reg 1 # cnd $end
+$upscope $end
+$scope module testbench $end
+$var reg 4 $ rA [3:0] $end
+$upscope $end
+$scope module testbench $end
+$var reg 4 % rB [3:0] $end
+$upscope $end
+$scope module testbench $end
+$var reg 64 & valE [63:0] $end
+$upscope $end
+$scope module testbench $end
+$var reg 64 ' valM [63:0] $end
+$upscope $end
+$scope module testbench $end
+$var wire 64 ( valA [63:0] $end
+$upscope $end
+$scope module testbench $end
+$var wire 64 ) valB [63:0] $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b11010000101000100001100111101011101110 )
+b0 (
+bx '
+b101010001110000010100000010010 &
+b111 %
+b10 $
+0#
+b1010 "
+0!
+$end
+#10
+1!
+b11010000101000100001100111101011101100 &
+#20
+b11010000101000100001100111101011101100 )
+0!
+#30
+1!
+b11010000101000100001100111101011101101 &
+#40
+b11010000101000100001100111101011101101 )
+0!
+#50
+1!
+b11010000101000100001100111101011101110 &
+#60
+b11010000101000100001100111101011101110 )
+0!
+#70
+1!
+b11010000101000100001100111101011101111 &
+#80
+b11010000101000100001100111101011101111 )
+0!
+#90

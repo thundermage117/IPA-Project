@@ -1,7 +1,7 @@
 module fetch(PC, icode,ifun,rA,rB,valC, valP,clk,instr_valid);
 input [63:0]PC;
 input clk;
-output reg [1:0]status=2'b00; //AOK - 0, default
+//output reg [1:0]status=2'b00; //AOK - 0, default
 output reg [3:0] icode;
 output reg [3:0] ifun;
 output reg [3:0] rA=4'b0;
