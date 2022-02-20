@@ -9,7 +9,7 @@ reg instr_valid;
 reg [63:0] valA;
 wire [63:0] valM;
 
-//check testbench for read part too
+//check testbench for read part
 	integer i,k,j;
 	Memory DUT(icode,valE,valA,valP,instr_valid,valM,clk);
 	initial begin
