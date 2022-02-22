@@ -135,7 +135,7 @@ wire carry_sum,carry_sub;
    add module1(sum_out,carry_sum,A,B,1'b0);
    and64 module2(and_out,A,B);
    xor64 module3(xor_out,A,B);
-   sub module4(sub_out,carry_sub,A,B);
+   sub module4(sub_out,carry_sub,B,A);
 
    always@(*)
    begin

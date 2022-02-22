@@ -105,7 +105,7 @@ begin
 	end
 end
 
-always @(clk) ////ensures write takes place after the clk cycle
+always @(posedge clk) ////ensures write takes place after the clk cycle
 begin
     if(set_cc==1'b1)
     begin

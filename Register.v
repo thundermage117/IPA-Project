@@ -151,7 +151,7 @@ begin
         destE<=4;
 	end
 end
-always @(clk)
+always @(posedge clk)
 begin
 if(destM!=4'hF)
     begin

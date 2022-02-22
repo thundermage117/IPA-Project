@@ -11,8 +11,8 @@ output reg [63:0] valP=64'b0;
 
 integer a,file;
 
-reg [0:123]Instruction_Mem='h01527131030B8121212121212121200;
-
+//reg [0:123]Instruction_Mem='h01527131030B8121212121212121200;
+reg [0:519]Instruction_Mem='h30f0000000000000000030f10100000000000000601030f20100000000000000602130f26400000000000000611275A00000000000000000000000000000000000;//160
 reg [0:79]ins;
 
 output reg instr_valid;
@@ -117,10 +117,29 @@ begin
 	end
 
 	if(need_valC==1 && need_regids==1)
-		valC<=ins[16:79];
-	else if(need_valC==1 && need_regids==0)
-		valC<=ins[8:71];
-
+	begin
+		//valC<=ins[16:79];//6483==8364
+		valC[7:0]<=  ins[16:23];
+		valC[15:8]<= ins[24:31];
+		valC[23:16]<=ins[32:39];
+		valC[31:24]<=ins[40:47];
+		valC[39:32]<=ins[48:55];
+		valC[47:40]<=ins[56:63];
+		valC[55:48]<=ins[64:71];
+		valC[63:56]<=ins[72:79];
+	end
+	else if(need_valC==1 && need_regids==0)//sub 8
+	begin
+		//valC<=ins[8:71];
+		valC[7:0]<=  ins[8:15];
+		valC[15:8]<= ins[16:23];
+		valC[23:16]<=ins[24:31];
+		valC[31:24]<=ins[32:39];
+		valC[39:32]<=ins[40:47];
+		valC[47:40]<=ins[48:55];
+		valC[55:48]<=ins[56:63];
+		valC[63:56]<=ins[64:71];
+	end
 	valP<=PC+8*(1+need_regids+(8*need_valC));
 end
 

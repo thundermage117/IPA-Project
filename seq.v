@@ -6,7 +6,7 @@
 
 module seq();
 
-reg [63:0]PC_in=4;
+reg [63:0]PC_in=0;
 wire [63:0]PC;
 wire [3:0] icode;
 wire [3:0] ifun;
@@ -39,7 +39,7 @@ initial begin
 	clk=0;
 	//valE='h2A382812;
 	//#10;
-	for(j=0;j<4;j++) begin 
+	for(j=0;j<600;j++) begin 
 	//valE=j+'h3424867AEC; //non-blocking=> o/p next cycle
 	clk=1;
 	#10;
