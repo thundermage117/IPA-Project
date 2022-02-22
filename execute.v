@@ -114,11 +114,11 @@ begin
 		else
 			ZF<=1'b0;
 		SF<=valE[63];
+		OF<=overflow;
 		//if((valA[63]==valB[63])&(valA[63]!=valE[63]))
 		//	OF<=1'b1;
 		//else
 		//	OF<=1'b0;
-		OF<=overflow;
 		cc_memory[0]<=ZF;
 		cc_memory[1]<=SF;
 		cc_memory[2]<=OF;

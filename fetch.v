@@ -1,4 +1,4 @@
-module fetch(PC, icode,ifun,rA,rB,valC, valP,clk,instr_valid);
+module fetch(PC, icode,ifun,rA,rB,valC, valP,clk,instr_valid,imem_error);
 input [63:0]PC;
 input clk;
 //output reg [1:0]status=2'b00; //AOK - 0, default
@@ -8,22 +8,25 @@ output reg [3:0] rA=4'b0;
 output reg [3:0] rB=4'b0; 
 output reg [63:0] valC=64'b0;
 output reg [63:0] valP=64'b0;
+output reg imem_error=1'b0;
 
 integer a,file;
 
-//reg [0:123]Instruction_Mem='h01527131030B8121212121212121200;
-reg [0:519]Instruction_Mem='h30f0000000000000000030f10100000000000000601030f20100000000000000602130f26400000000000000611275A00000000000000000000000000000000000;//160
+//reg [0:123]Instruction_Mem='h01527131030B8121212121212121200; //Instruction mem for TB
+reg [0:519]Instruction_Mem='h30f0000000000000000030f10100000000000000601030f20100000000000000602130f26400000000000000611275A00000000000000000000000000000000000;//Summation till 100(64 in hex)
 reg [0:79]ins;
 
 output reg instr_valid;
 reg need_regids,need_valC;
 
-//add imem_error
 always @(*)
 begin 
 	ins<=Instruction_Mem[PC+:80];
 	icode<=ins[0:3];
 	ifun<=ins[4:7];
+
+	if(PC>'h519)
+		imem_error=1'b1;
 
 
 	if(icode==4'h0)		//halt

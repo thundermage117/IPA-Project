@@ -13,15 +13,16 @@ wire [63:0] valC;
 wire [63:0] valP;
 wire [79:0] test;
 wire instr_valid;
+wire imem_error;
 
 
 	integer i,k,j;
-	fetch DUT(PC, icode,ifun,rA,rB,valC, valP,clk,instr_valid);
+	fetch DUT(PC, icode,ifun,rA,rB,valC, valP,clk,instr_valid,imem_error);
 	initial begin
 	
 	$monitor ($time,"ns:  clk=%b, PC=%h, icode=%h, ifun=%h, valP=%h\n",clk,PC,icode,ifun,valP); 
 	$dumpfile("fetch.vcd");
-    	$dumpvars(0,PC, icode,ifun,rA,rB,valC, valP,clk,instr_valid);
+    	$dumpvars(0,PC, icode,ifun,rA,rB,valC, valP,clk,instr_valid,imem_error);
 	clk=0;
     PC=4;
 	#10;

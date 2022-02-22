@@ -1,5 +1,5 @@
 $date
-	Tue Feb 22 18:06:26 2022
+	Tue Feb 22 21:00:23 2022
 $end
 $version
 	Icarus Verilog
@@ -52,9 +52,17 @@ $upscope $end
 $scope module seq $end
 $var reg 64 / PC_in [63:0] $end
 $upscope $end
+$scope module seq $end
+$var wire 2 0 stat [1:0] $end
+$upscope $end
+$scope module seq $end
+$var wire 1 1 imem_error $end
+$upscope $end
 $enddefinitions $end
 #0
 $dumpvars
+01
+b0 0
 b0 /
 1.
 0-

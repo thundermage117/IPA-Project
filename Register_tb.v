@@ -19,7 +19,7 @@ wire [63:0] valB;
 	$dumpfile("Register.vcd");
     	$dumpvars(0,clk,icode,cnd,rA,rB,valE,valM,valA,valB);
 	clk=0;
-	icode=4'hA;
+	icode=4'hB;
 	rA=4'h2;
 	rB=4'h7;
 	cnd=0;
@@ -27,6 +27,7 @@ wire [63:0] valB;
 	//#10;
 	for(j=0;j<4;j++) begin 
 	valE=j+'h3424867AEC; //non-blocking=> o/p next cycle
+	valM='h6567;
 	clk=1;
 	#10;
 	clk=0;

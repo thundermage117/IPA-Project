@@ -1,5 +1,5 @@
 $date
-	Thu Feb 17 13:02:23 2022
+	Tue Feb 22 19:51:33 2022
 $end
 $version
 	Icarus Verilog
@@ -34,9 +34,13 @@ $upscope $end
 $scope module testbench $end
 $var wire 1 ) instr_valid $end
 $upscope $end
+$scope module testbench $end
+$var wire 1 * imem_error $end
+$upscope $end
 $enddefinitions $end
 #0
 $dumpvars
+0*
 1)
 0(
 b1100 '

@@ -5,20 +5,23 @@ reg [3:0] icode;
 reg [63:0] valE;
 reg [63:0] valP;
 reg clk;
-reg instr_valid;
+reg imem_error=1'b0;
+reg instr_valid=1'b1;
 reg [63:0] valA;
 wire [63:0] valM;
+wire [1:0]stat;
 
 //check testbench for read part
 	integer i,k,j;
-	Memory DUT(icode,valE,valA,valP,instr_valid,valM,clk);
+	Memory DUT(icode,valE,valA,valP,instr_valid,imem_error,valM,clk,stat);
 	initial begin
 	//$monitor ($time,"ns:  clk=%b, PC=%h, icode=%h, ifun=%h, valP=%h\n",clk,PC,icode,ifun,valP); 
-	$dumpfile("Register.vcd");
-    	$dumpvars(0,icode,valE,valA,valP,instr_valid,valM,clk);
+	$dumpfile("Memory.vcd");
+    	$dumpvars(0,icode,valE,valA,valP,instr_valid,valM,clk,stat,imem_error);
 	clk=0;
 	icode=4'h4;
 	valE='h6;
+	valP='h312;
 	//valA='h27359;
 	//#10;
 	for(j=0;j<4;j++) begin 

@@ -153,14 +153,14 @@ begin
 end
 always @(posedge clk)
 begin
+if(destE!=4'hF)
+    begin
+        reg_store[destE]<=valE;
+        $writememh("REG_MEM.txt", reg_store, 0,14);
+    end
 if(destM!=4'hF)
     begin
         reg_store[destM]<=valM;
-        $writememh("REG_MEM.txt", reg_store, 0,14);
-    end
-    if(destE!=4'hF)
-    begin
-        reg_store[destE]<=valE;
         $writememh("REG_MEM.txt", reg_store, 0,14);
     end
 end

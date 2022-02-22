@@ -21,6 +21,7 @@ initial begin
 	icode=4'h6;
 	valA='hFFFFFFFFFFFFFFFF;
     ifun=4'h0;
+	valC='h4;
     //valA=2**63-1; //overflow test
     //valB=2**63-1;
 	for(j=0;j<3;j++) begin 
