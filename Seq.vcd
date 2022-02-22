@@ -1,0 +1,112 @@
+$date
+	Tue Feb 22 12:20:08 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module seq $end
+$var wire 64 ! PC [63:0] $end
+$upscope $end
+$scope module seq $end
+$var wire 4 " icode [3:0] $end
+$upscope $end
+$scope module seq $end
+$var wire 4 # ifun [3:0] $end
+$upscope $end
+$scope module seq $end
+$var wire 4 $ rA [3:0] $end
+$upscope $end
+$scope module seq $end
+$var wire 4 % rB [3:0] $end
+$upscope $end
+$scope module seq $end
+$var wire 64 & valC [63:0] $end
+$upscope $end
+$scope module seq $end
+$var wire 64 ' valP [63:0] $end
+$upscope $end
+$scope module seq $end
+$var wire 64 ( valA [63:0] $end
+$upscope $end
+$scope module seq $end
+$var wire 64 ) valB [63:0] $end
+$upscope $end
+$scope module seq $end
+$var wire 64 * valM [63:0] $end
+$upscope $end
+$scope module seq $end
+$var wire 64 + valE [63:0] $end
+$upscope $end
+$scope module seq $end
+$var wire 1 , instr_valid $end
+$upscope $end
+$scope module seq $end
+$var wire 1 - Cnd $end
+$upscope $end
+$scope module seq $end
+$var reg 1 . clk $end
+$upscope $end
+$scope module seq $end
+$var reg 64 / PC_in [63:0] $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b100 /
+1.
+0-
+1,
+bx +
+bx *
+bx )
+bx (
+b1100 '
+b0 &
+b1111 %
+b1111 $
+b101 #
+b1 "
+b1100 !
+$end
+#10
+0.
+#20
+b0 +
+b0 (
+b11 %
+b1 $
+b11100 !
+b111 #
+b10 "
+b11100 '
+b1100 /
+1.
+#30
+0.
+#40
+b100100 !
+b1111 %
+b1111 $
+b0 #
+b1 "
+b100100 '
+b11100 /
+1.
+#50
+0.
+#60
+b1001000010010000100100001001000010010000100100001001000010010 +
+b1001000010010000100100001001000010010000100100001001000010010 &
+b1000 %
+b1011 $
+b1110100 !
+b11 "
+b1110100 '
+b100100 /
+1.
+#70
+0.
+#80

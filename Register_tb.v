@@ -23,7 +23,7 @@ wire [63:0] valB;
 	rA=4'h2;
 	rB=4'h7;
 	cnd=0;
-	valE='h2A382812;
+	//valE='h2A382812;
 	//#10;
 	for(j=0;j<4;j++) begin 
 	valE=j+'h3424867AEC; //non-blocking=> o/p next cycle

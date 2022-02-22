@@ -19,7 +19,7 @@ initial
 		$readmemh("DATA_MEM.txt", data_memory, 0, 127);
 	end
 
-//update for instr-valid
+//update for status
 
 always @(*)     
 begin

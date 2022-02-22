@@ -1,0 +1,62 @@
+$date
+	Mon Feb 21 23:15:03 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module testbench $end
+$var reg 4 ! icode [3:0] $end
+$upscope $end
+$scope module testbench $end
+$var reg 4 " ifun [3:0] $end
+$upscope $end
+$scope module testbench $end
+$var reg 64 # valC [63:0] $end
+$upscope $end
+$scope module testbench $end
+$var reg 64 $ valA [63:0] $end
+$upscope $end
+$scope module testbench $end
+$var reg 64 % valB [63:0] $end
+$upscope $end
+$scope module testbench $end
+$var wire 64 & valE [63:0] $end
+$upscope $end
+$scope module testbench $end
+$var wire 1 ' Cnd $end
+$upscope $end
+$scope module testbench $end
+$var reg 1 ( clk $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1(
+1'
+b1111111111111111111111111111111111111111111111111111111111111111 &
+b1111111111111111111111111111111111111111111111111111111111111111 %
+b1111111111111111111111111111111111111111111111111111111111111111 $
+bx #
+b11 "
+b10 !
+$end
+#10
+0(
+#20
+b0 &
+1(
+b0 $
+b0 %
+#30
+0(
+#40
+b1 &
+1(
+b1 $
+b1 %
+#50
+0(
+#60

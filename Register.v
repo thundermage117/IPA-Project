@@ -1,7 +1,7 @@
-module Register(icode,cnd,rA,rB,valA,valB,valE,valM,clk);
+module Register(icode,Cnd,rA,rB,valA,valB,valE,valM,clk);
 
 input [3:0] icode;
-input cnd;
+input Cnd;
 input [3:0] rA;
 input [3:0] rB;
 input [63:0] valE;
@@ -19,7 +19,7 @@ initial
 	end
 
 reg [3:0] srcA,srcB,destM,destE;
-//update after execute completion
+//update after execute completion for Cnd
 always @(*)    
 begin
     if(icode==4'h0)		//halt
@@ -88,7 +88,7 @@ begin
         valB<=reg_store[srcB];
 end
 
-always @(posedge clk)  
+always @(*)  
 begin
     if(icode==4'h0)		//halt
 	begin
@@ -100,7 +100,7 @@ begin
 		destM<=4'hF;
         destE<=4'hF;
 	end
-	else if(icode==4'h2)	//IRRMOVQ
+	else if((icode==4'h2) && (Cnd==1'b1))	//IRRMOVQ
 	begin
 		destM<=4'hF;
         destE<=rB;
@@ -150,8 +150,10 @@ begin
 		destM<=rA;
         destE<=4;
 	end
-
-    if(destM!=4'hF)
+end
+always @(clk)
+begin
+if(destM!=4'hF)
     begin
         reg_store[destM]<=valM;
         $writememh("REG_MEM.txt", reg_store, 0,14);

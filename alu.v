@@ -142,8 +142,8 @@ wire carry_sum,carry_sub;
 	assign x=control;
        if(x==2'b00)
 	begin
-       	     assign out=sum_out;
-	     assign carry_overflow=carry_sum;
+       	assign out=sum_out;
+	    assign carry_overflow=carry_sum;
 	end
 	
        else if(x==2'b01)

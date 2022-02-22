@@ -1,4 +1,4 @@
-`include"alu_full.v"
+`include"alu.v"
 `timescale 1ps / 1ps 
 module testbench;
 	reg [63:0] a,b;
