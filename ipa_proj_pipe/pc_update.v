@@ -11,7 +11,7 @@ always @(*)
 begin
 	if(icode==4'h7)	//jxx
         new_pc<=valC;
-	else if(icode==4'h8)	//call
+	else if(icode==4'h8)//call
         new_pc<=valC;
 	else
         new_pc<=valP;

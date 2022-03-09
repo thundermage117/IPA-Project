@@ -17,29 +17,7 @@ begin
 end
 endmodule
 
-// Clocked register with enable signal.
-module cenreg(out, in, enable, clock);
-parameter width = 8;
-output [width-1:0] out;
-input [width-1:0] in;
-input enable;
-input clock;
-
-cenrreg #(width) c(out, in, enable, 1'b0, 8'b0, clock);
-endmodule
-
-// Basic clocked register.
-module creg(out, in, clock);
-parameter width = 8;
-output [width-1:0] out;
-input [width-1:0] in;
-input clock;
-
-cenreg #(width) r(out, in, 1'b1, clock);
-endmodule
-
 // Pipeline register. Uses reset signal to inject bubble
-// When bubbling, must specify value that will be loaded
 module preg(out, in, stall, bubble, bubbleval, clock);
 parameter width = 8;
 output [width-1:0] out;
@@ -51,7 +29,8 @@ input clock;
 cenrreg #(width) r(out, in, ~stall, bubble, bubbleval, clock);
 endmodule
 
-module reg_data(dstE, valE, dstM, valM, srcA, valA, srcB, valB, clock, rax, rcx, rdx, rbx, rsp, rbp, rsi, rdi, r8, r9, r10, r11, r12, r13, r14);
+module reg_data(dstE, valE, dstM, valM, srcA, valA, srcB, valB, clock, 
+rax, rcx, rdx, rbx, rsp, rbp, rsi, rdi, r8, r9, r10, r11, r12, r13, r14);
 
 input [3:0] dstE;
 input [63:0] valE;

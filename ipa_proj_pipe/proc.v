@@ -191,9 +191,9 @@ assign w_dstM=W_dstM;
 assign w_valM=W_valM;
 always @(*) 
 begin
-    if((E_icode == 4'h5 | E_icode == 4'hB) & (E_dstM == d_srcA | E_dstM== d_srcB))
+    if((E_icode == 4'h5 | E_icode == 4'hB) & (E_dstM == d_srcA | E_dstM== d_srcB))//5-MRMOVQ, B-POPQ
         F_stall<=1;
-    else if((D_icode==4'h9)|(E_icode==4'h9)|(M_icode==4'h9))
+    else if((D_icode==4'h9)|(E_icode==4'h9)|(M_icode==4'h9))//RET
         F_stall<=1;
     else 
         F_stall<=0;
@@ -203,7 +203,7 @@ begin
          D_stall=1;
     else
          D_stall=0;
-    if((E_icode == 4'h7) & (e_Cnd==0))
+    if((E_icode == 4'h7) & (e_Cnd==0))//Mispredicted Branch
          D_bubble=1;
     else if(~((E_icode == 4'h5 | E_icode ==4'hB) & (E_dstM == d_srcA | E_dstM == d_srcB)) & ( D_icode ==4'h9  | E_icode==4'h9  | M_icode==4'h9 ))
          D_bubble=1;
@@ -212,23 +212,17 @@ begin
 
     
     E_stall=0;
-    if((E_icode == 4'h7)&(e_Cnd==0))
+    if((E_icode == 4'h7)&(e_Cnd==0))//Mispredicted branch
         E_bubble=1;
-    else if((E_icode == 4'h5 | E_icode == 4'hB) & (E_dstM == d_srcA | E_dstM == d_srcB))
+    else if((E_icode == 4'h5 | E_icode == 4'hB) & (E_dstM == d_srcA | E_dstM == d_srcB))//5-MRMOVQ, B-POPQ
         E_bubble=1;
     else
         E_bubble=0;
 
     M_stall=0;
-    if(~(m_stat==2'b00)|~(W_stat==2'b00))
-        M_bubble=1;
-    else
-        M_bubble=0;
+    M_bubble=0;
 
-    if(~(W_stat==2'b00))
-        W_stall=1;
-    else    
-        W_stall=0;
+    W_stall=0;
     W_bubble=0;
 end
 
@@ -272,9 +266,9 @@ reg [63:0]temp14;
 assign e_dstE=temp14;
 always @(*)  
 begin
-    if((M_icode == 4'h7)&M_Cnd==0)
+    if((M_icode == 4'h7) & M_Cnd==0)//jmp
         f_pc<= M_valA;
-    else if(W_icode==4'h9)
+    else if(W_icode==4'h9)//ret
         f_pc<=W_valM;
     else if(F_predPC)
         f_pc<= F_predPC;
